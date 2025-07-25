@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-main-layout title="homesss">
     <div class="container mt-5">
         <div class="row">
             <div class="col">
