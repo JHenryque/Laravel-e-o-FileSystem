@@ -164,6 +164,19 @@ class FileController extends Controller
         }
 
         return view('list-files-for-download', compact('files'));
+    }
 
+    public function storageLocalUploadFile(Request $request)
+    {
+        // soluçao para quardar o ficheiro na pasta storage/app/uploads
+        //$request->file('arquivo')->store('uploads');
+
+        // para colocar o ficheiro na pasta storage/app/public
+        // $request->file('arquivo')->store('public/images');
+
+        // guardar o ficheiro com o nome original
+        $request->file('arquivo')->storeAs('public/images', $request->file('arquivo')->getClientOriginalName());
+
+        echo 'Ficheiro enviado com sucesso';
     }
 }

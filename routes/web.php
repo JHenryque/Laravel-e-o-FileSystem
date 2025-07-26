@@ -28,6 +28,11 @@ Route::get('/download/{file}', function ($file){
     return response()->download('storage/' . $file);
 })->name('download.file');
 
+// upload de arquivos
+Route::post('/storage_local_upload', [FileController::class, 'storageLocalUploadFile'])->name('storage.local.upload');
+
+
+
 Route::get('/public', function () {
     $contents = Storage::disk('public')->get('teste.txt');
     echo $contents;
