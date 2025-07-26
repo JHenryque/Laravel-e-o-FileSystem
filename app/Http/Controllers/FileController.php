@@ -27,4 +27,23 @@ class FileController extends Controller
 
         return redirect()->route('home');
     }
+
+    public function storageLocalRead()
+    {
+        //$contents = Storage::disk('local')->get('file1.txt');
+        $contents = Storage::get('file3.txt');
+
+        echo $contents;
+    }
+
+    public function storageLocalReadMulti()
+    {
+        $lines = Storage::get('file3.txt');
+        //$lines = explode("\n", $lines);
+        $lines = explode(PHP_EOL, $lines);
+
+        foreach ($lines as $line) {
+            echo "<p>$line</p>";
+        }
+    }
 }
