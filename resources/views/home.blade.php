@@ -20,6 +20,11 @@
                     <a href="{{ route('storage.local.list') }}" class="btn btn-primary">Listar Arquivo</a>
                     <a href="{{ route('storage.local.delete') }}" class="btn btn-primary">Eliminar Arquivo</a>
                 </div>
+
+                <div class="d-flex gap-5 mb-5">
+                    <a href="{{ route('storage.local.create.folder') }}" class="btn btn-primary">Criar Pasta</a>
+                    <a href="{{ route('storage.local.delete.folder') }}" class="btn btn-primary">Remover Pasta</a>
+                </div>
             </div>
         </div>
     </div>

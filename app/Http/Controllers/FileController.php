@@ -117,4 +117,19 @@ class FileController extends Controller
         // Eliminar todos os aqurivos
         //Storage::delete(Storage::files());
     }
+
+    public function storageLocalCreateFolder()
+    {
+        Storage::disk()->makeDirectory('documents');
+        Storage::disk('local')->makeDirectory('documents/teste');
+        echo 'Ficheiro criado com sucesso';
+    }
+
+    public function storageLocalDeleteFolder()
+    {
+        //Storage::disk('local')->deleteDirectory('pasta');
+        // ou
+        Storage::deleteDirectory('documents');
+        echo 'Ficheiro removido com sucesso';
+    }
 }
