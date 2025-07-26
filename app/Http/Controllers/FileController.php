@@ -108,4 +108,13 @@ class FileController extends Controller
         echo '<pre>';
         print_r($files);
     }
+
+    public function storageLocalDelete()
+    {
+        Storage::delete('file1.txt');
+        echo 'Ficheiro removido com sucesso';
+
+        // Eliminar todos os aqurivos
+        //Storage::delete(Storage::files());
+    }
 }

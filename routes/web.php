@@ -14,6 +14,7 @@ Route::get('/storage_local_check_file', [FileController::class, 'storageLocalChe
 Route::get('/storage_local_store_json', [FileController::class, 'storageLocalStoreJson'])->name('storage.local.store.json');
 Route::get('/storage_local_read_json', [FileController::class, 'storageLocalReadJson'])->name('storage.local.read.json');
 Route::get('/storage_local_list', [FileController::class, 'storageLocalListFiles'])->name('storage.local.list');
+Route::get('/storage_local_delete', [FileController::class, 'storageLocalDelete'])->name('storage.local.delete');
 
 Route::get('/public', function () {
     $contents = Storage::disk('public')->get('teste.txt');
