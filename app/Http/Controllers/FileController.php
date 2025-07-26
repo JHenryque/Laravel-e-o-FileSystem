@@ -66,7 +66,35 @@ class FileController extends Controller
         } else {
             echo "exists";
         }
+    }
 
+    public function storageLocalStoreJson()
+    {
+        $data = [
+          [
+            'name' => 'Joao',
+            'email' => 'joao@gmail.com',
+          ],
+            [
+                'name' => 'ana',
+                'email' => 'ana@gmail.com',
+            ],
+            [
+                'name' => 'Jose',
+                'email' => 'jose@gmail.com',
+            ],
+        ];
 
+        Storage::put('data.json', json_encode($data));
+        echo '<script>alert("Ficheiro JSON Criado")</script>';
+
+    }
+
+    public function storageLocalReadJson()
+    {
+        //$data = json_decode(Storage::get('data.json'), true);
+        $data = Storage::json('data.json');
+        echo '<pre>';
+        print_r($data);
     }
 }
