@@ -20,6 +20,8 @@ Route::get('/storage_local_delete', [FileController::class, 'storageLocalDelete'
 Route::get('/storage_local_create_folder', [FileController::class, 'storageLocalCreateFolder'])->name('storage.local.create.folder');
 Route::get('/storage_local_delete_folder', [FileController::class, 'storageLocalDeleteFolder'])->name('storage.local.delete.folder');
 
+Route::get('/storage_local_list_files_metadata', [FileController::class, 'listFilesWithMetadata'])->name('storage.local.list.files.metadata');
+
 Route::get('/public', function () {
     $contents = Storage::disk('public')->get('teste.txt');
     echo $contents;
