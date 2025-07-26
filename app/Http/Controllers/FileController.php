@@ -97,4 +97,15 @@ class FileController extends Controller
         echo '<pre>';
         print_r($data);
     }
+
+    public function storageLocalListFiles()
+    {
+        $files = Storage::files('meus_arquivos');
+        // por arquivo
+        $files = Storage::disk('local')->files();
+        // por pastas
+        $files = Storage::disk('local')->directories();
+        echo '<pre>';
+        print_r($files);
+    }
 }

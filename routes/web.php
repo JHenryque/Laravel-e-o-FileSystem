@@ -13,6 +13,7 @@ Route::get('/storage_local_read_multi', [FileController::class, 'storageLocalRea
 Route::get('/storage_local_check_file', [FileController::class, 'storageLocalCheckFile'])->name('storage.local.check.file');
 Route::get('/storage_local_store_json', [FileController::class, 'storageLocalStoreJson'])->name('storage.local.store.json');
 Route::get('/storage_local_read_json', [FileController::class, 'storageLocalReadJson'])->name('storage.local.read.json');
+Route::get('/storage_local_list', [FileController::class, 'storageLocalListFiles'])->name('storage.local.list');
 
 Route::get('/public', function () {
     $contents = Storage::disk('public')->get('teste.txt');
