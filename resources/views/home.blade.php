@@ -38,12 +38,19 @@
                         <div class="mb-3">
                             <label for="arquivo" class="form-label">Arquivo</label>
                             <input type="file" class="form-control" id="aquivo" name="arquivo">
+                            @error('arquivo')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="text-end">
                             <button class="btn btn-primary px-5" type="submit">Enviar</button>
                         </div>
                     </form>
+                </div>
+
+                <div>
+                    <img src="{{ asset("$path") }}">
                 </div>
             </div>
         </div>

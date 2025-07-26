@@ -12,7 +12,9 @@ class FileController extends Controller
 {
     public function index(): View
     {
-        return view('home');
+        $path = Storage::disk('storage/images/')->path('minha-foto.jpg');
+
+        return view('home', compact('path'));
     }
 
     public function storageLocalCreate()
@@ -175,8 +177,15 @@ class FileController extends Controller
         // $request->file('arquivo')->store('public/images');
 
         // guardar o ficheiro com o nome original
-        $request->file('arquivo')->storeAs('public/images', $request->file('arquivo')->getClientOriginalName());
+        //$request->file('arquivo')->storeAs('public/images', $request->file('arquivo')->getClientOriginalName());
 
+        // ---------------------------------------------------------
+        // upload de ficheiro com validaçao
+        $request->validate([
+           'arquivo' => 'required|mimes:pdf,jpg,jpeg,png|max:2048',
+        ]);
+
+        $request->file('arquivo')->store('public');
         echo 'Ficheiro enviado com sucesso';
     }
 }
