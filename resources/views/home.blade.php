@@ -50,7 +50,10 @@
                 </div>
 
                 <div>
-                    <img src="{{ asset("$path") }}">
+
+                        <img src="{{ $urls }}" width="258px">
+
+
                 </div>
             </div>
         </div>

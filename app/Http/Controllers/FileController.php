@@ -12,9 +12,14 @@ class FileController extends Controller
 {
     public function index(): View
     {
-        $path = Storage::disk('storage/images/')->path('minha-foto.jpg');
+        $arquivos = Storage::files('public/images');
 
-        return view('home', compact('path'));
+        $urls = '';
+        foreach ($arquivos as $arquivo) {
+            $urls = Storage::url($arquivo); // retorna o caminho acessível tipo: /storage/fotos/nome.jpg
+        }
+
+        return view('home', compact('urls'));
     }
 
     public function storageLocalCreate()
